@@ -1,31 +1,128 @@
-Problem Statement
-Create a snake and ladder application. The application should take as input (from the command line or a file):
+# Snake and Ladder Game
 
-Number of snakes (s) followed by s lines each containing 2 numbers denoting the head and tail positions of the snake.
-Number of ladders (l) followed by l lines each containing 2 numbers denoting the start and end positions of the ladder.
-Number of players (p) followed by p lines each containing a name.
-After taking these inputs, you should print all the moves in the form of the current player name followed by a random number between 1 to 6 denoting the die roll and the initial and final position based on the move.
-Format: <player_name> rolled a <dice_value> and moved from <initial_position> to <final_position>
+This repository contains the implementation of a **Snake and Ladder** game based on the classic board game. The application simulates the game for multiple players, incorporating snakes, ladders, and dice rolls, all while adhering to the rules outlined below.
 
-When someone wins the game, print that the player won the game.
-Format: <player_name> wins the game
+---
 
-Rules of the game
-The board will have 100 cells numbered from 1 to 100.
-The game will have a six sided dice numbered from 1 to 6 and will always give a random number on rolling it.
-Each player has a piece which is initially kept outside the board (i.e., at position 0).
-Each player rolls the dice when their turn comes.
-Based on the dice value, the player moves their piece forward that number of cells. Ex: If the dice value is 5 and the piece is at position 21, the player will put their piece at position 26 now (21+5).
-A player wins if it exactly reaches the position 100 and the game ends there.
-After the dice roll, if a piece is supposed to move outside position 100, it does not move.
-The board also contains some snakes and ladders.
-Each snake will have its head at some number and its tail at a smaller number.
-Whenever a piece ends up at a position with the head of the snake, the piece should go down to the position of the tail of that snake.
-Each ladder will have its start position at some number and end position at a larger number.
-Whenever a piece ends up at a position with the start of the ladder, the piece should go up to the position of the end of that ladder.
-There could be another snake/ladder at the tail of the snake or the end position of the ladder and the piece should go up/down accordingly.
-Assumptions you can take apart from those already mentioned in rules
-There won’t be a snake at 100.
-There won’t be multiple snakes/ladders at the same start/head point.
-It is possible to reach 100, i.e., it is possible to win the game.
-Snakes and Ladders do not form an infinite loop.
+## Features
+- Simulates the Snake and Ladder game with up to 100 cells.
+- Random dice rolls to move players forward.
+- Automatically handles snakes and ladders, adjusting player positions accordingly.
+- Multiple players supported.
+- Detailed output of moves for each player.
+- Identifies and declares the winner when a player reaches position 100.
+
+---
+
+## How to Run
+
+### Prerequisites
+- Ensure you have Java installed (if the implementation is in Java) or the appropriate runtime environment for the language used.
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-username>/snake-ladder-game.git
+   cd snake-ladder-game
+   ```
+2. Compile the code (if applicable):
+   ```bash
+   javac Main.java
+   ```
+3. Run the program:
+   ```bash
+   java Main
+   ```
+4. Input the game configuration (snakes, ladders, and players) as prompted or through a file.
+
+---
+
+## Input Format
+The program accepts input via the command line or a file containing:
+1. **Number of snakes (`s`)** followed by `s` lines of snake positions (head and tail).
+2. **Number of ladders (`l`)** followed by `l` lines of ladder positions (start and end).
+3. **Number of players (`p`)** followed by `p` lines of player names.
+
+### Example Input (File or Command Line):
+```
+3
+14 7
+28 12
+34 2
+2
+3 22
+5 8
+2
+Alice
+Bob
+```
+
+---
+
+## Output Format
+The game will print each player's move in the following format:
+```
+<player_name> rolled a <dice_value> and moved from <initial_position> to <final_position>
+```
+When a player wins, it declares the winner:
+```
+<player_name> wins the game
+```
+
+### Example Output:
+```
+Alice rolled a 4 and moved from 0 to 4
+Bob rolled a 6 and moved from 0 to 6
+Alice rolled a 5 and moved from 4 to 9
+Bob rolled a 2 and moved from 6 to 8
+Alice wins the game
+```
+
+---
+
+## Rules
+1. The board has 100 cells numbered from 1 to 100.
+2. Each player starts at position 0.
+3. A six-sided dice determines the number of cells a player moves forward.
+4. Players encountering:
+   - A **snake's head** will move down to its tail.
+   - A **ladder's start** will move up to its end.
+5. If a dice roll moves a player beyond position 100, the move is ignored.
+6. The first player to reach position 100 wins the game.
+
+---
+
+## Assumptions
+- No snakes at position 100.
+- No overlapping snakes or ladders at the same starting position.
+- Snakes and ladders do not form infinite loops.
+- A player can always win the game (i.e., it is possible to reach 100).
+
+---
+
+## Contributing
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes.
+   ```bash
+   git commit -m "Add feature"
+   ```
+4. Push to your branch.
+   ```bash
+   git push origin feature-name
+   ```
+5. Create a pull request.
+
+---
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+For any queries or suggestions, feel free to reach out to [your-email@example.com](mailto:your-email@example.com).
+
